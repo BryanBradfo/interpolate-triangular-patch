@@ -1,4 +1,4 @@
-# Modelisation_geometrique
+# Modélisation Géométrique
 
 Pour ce projet, nous avons décidé de choisir le sujet qui implémente les surfaces à patches triangulaires interpolantes (et on va procéder par le schéma butterfly).
 
