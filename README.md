@@ -12,6 +12,9 @@ The butterfly scheme is a surface subdivision method that creates a smooth surfa
 
 Interpolating triangular patch surfaces have many advantages over other surface modeling methods, including their flexibility, ease of use, and ability to model complex surfaces. However, they also have limitations in terms of representation accuracy and ability to handle large-sized surfaces.
 
+## Testing sample
+
+
 
 <!---
 # Modélisation Géométrique
