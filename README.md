@@ -1,33 +1,75 @@
-# Geometric Modeling
+# Geometric Modeling - Interpolating Triangular Patch Surfaces
 
-For this project, we decided to choose the topic that implements interpolating triangular patch surfaces (and we will proceed using the butterfly scheme).
+This project implements a geometric modeling technique using **interpolating triangular patch surfaces**, based on the **Butterfly subdivision scheme**. The aim is to model and visualize smooth surfaces by iteratively refining a triangular mesh.
 
-## Method principle
+---
 
-The basic principle of the interpolating triangular patch surface is to divide a surface into several small triangles, then interpolate a surface function on each of these triangles. Interplating surface functions can be calculated using different methods, one of the most common being the butterfly scheme.
+## 📌 Project Overview
 
-The butterfly scheme is a surface subdivision method that creates a smooth surface by connecting adjacent control points using triangles. The method consists of dividing each triangle into four smaller triangles by applying weights to each point in the direct neighborhood of each initial triangle. Then, a new control point grid is created from the new points obtained by dividing the sides.
+We focus on implementing a mesh refinement algorithm for triangular surfaces using the Butterfly scheme. The implementation supports various 3D shapes (e.g., diamond, cube, tetrahedron) and allows for multiple levels of subdivision.
 
-## Advantages and limitations
+---
 
-Interpolating triangular patch surfaces have many advantages over other surface modeling methods, including their flexibility, ease of use, and ability to model complex surfaces. However, they also have limitations in terms of representation accuracy and ability to handle large-sized surfaces.
+## 🧠 Method Principle
 
-## Testing sample
+The **Butterfly subdivision scheme** is an interpolating method that constructs new points based on weighted averages of neighboring vertices, generating smoother surfaces while preserving initial vertex positions.
+
+### Key Steps:
+1. Each triangle is subdivided into 4 smaller triangles.
+2. New vertices are computed using a linear combination of:
+   - Midpoints of edges (1/2 weight),
+   - Immediate neighbors (1/8 weight),
+   - Distant neighbors (-1/16 weight).
+3. This process is recursively applied for finer subdivisions.
+
+---
+
+## ✅ Advantages
+
+- **Interpolating**: Original vertices are preserved.
+- **Efficient**: Suitable for real-time and mesh refinement applications.
+- **Flexible**: Works with any triangular mesh.
+
+## ⚠️ Limitations
+
+- Sensitive to irregular mesh topology.
+- May produce artifacts near extraordinary vertices.
+- Less suitable for very coarse initial meshes.
+
+---
+
+## 🧪 Testing Samples
+
+Several 3D shapes were used to test and visualize the Butterfly subdivision:
+
+| Shape        | File                                  | Description                        |
+|--------------|---------------------------------------|------------------------------------|
+| Diamond      | `losange3D.py` / `losange3D_subdivised.py` | Diamond-shaped mesh and its subdivision |
+| Cube         | `cube3D.py` / `cube3D_subdivised.py`       | Basic cube model with refinement   |
+| Tetrahedron  | `tetraedre3D.py` / `tetraedre3D_subdivised.py` | Regular tetrahedron subdivision    |
+
+Each model is rendered using **matplotlib's 3D tools** and subdivided using the `butterfly_subdivision_loop` function.
 
 
+---
 
-<!---
-# Modélisation Géométrique
+## 🛠️ How to Run
 
-Pour ce projet, nous avons décidé de choisir le sujet qui implémente les surfaces à patches triangulaires interpolantes (et on va procéder par le schéma butterfly).
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd geometric-modeling
+   pip install matplotlib numpy
+   python losange3D_subdivised.py
 
-## Principe de la méthode
 
-Le principe de base de la surface à patches triangulaires interpolantes est de diviser une surface en plusieurs petits triangles, puis d'interpoler une fonction de surface sur chacun de ces triangles. Les fonctions de surface interpolantes peuvent être calculées en utilisant différentes méthodes, l'une des plus courantes étant le schéma butterfly. 
+---
 
-Le schéma butterfly est une méthode de subdivision de surface qui crée une surface lisse en reliant les points de contrôle adjacents à l'aide de triangles. La méthode consiste à diviser chaque triangle en quatre triangles plus petits en appliquant des poids à chaque point dans le voisinage direct de chaque triangle initial. Ensuite, une nouvelle grille de points de contrôle est créée à partir des nouveaux points obtenus en divisant les côtés.
+## 👩‍💻 Authors
 
-## Avantages et limites
+- Kawtar Lyamoudi
+- Bryan Chen
 
-Les surfaces à patches triangulaires interpolantes présentent de nombreux avantages par rapport à d'autres méthodes de modélisation de surface, notamment leur flexibilité, leur facilité d'utilisation et leur capacité à modéliser des surfaces complexes. Cependant, elles ont également des limites en termes de précision de la représentation et de capacité à gérer des surfaces de grande taille. 
----->
+📜 License
+
+This project is released under the MIT License.
