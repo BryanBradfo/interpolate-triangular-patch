@@ -61,9 +61,7 @@ Each model is rendered using **matplotlib's 3D tools** and subdivided using the 
    cd geometric-modeling
    pip install matplotlib numpy
    python losange3D_subdivised.py
-
-
----
+   ```
 
 ## 👩‍💻 Authors
 
